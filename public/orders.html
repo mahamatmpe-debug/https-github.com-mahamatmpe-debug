@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#00bb55">
+  <meta name="description" content="CNFFD 2026 - consultez et commandez vos composants en ligne">
+  <title>Commander | CNFFD 2026</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/img/icon-192.png">
+  <link rel="apple-touch-icon" href="/img/icon-192.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="/"><img src="/img/logo.jpeg" alt="logo"><span>CNFFD 2026</span></a>
+      <nav class="nav">
+        <a href="/">Accueil</a>
+        <a href="/social">Réseaux sociaux</a>
+        <a href="/about">À propos</a>
+        <a href="/inquiries">Demander info</a>
+      </nav>
+      <div class="actions">
+        <button id="install-btn" class="btn primary" hidden>Installer l'application</button>
+        <a class="btn" href="/orders">Panier (<span id="cart-count">0</span>)</a>
+      </div>
+    </div>
+  </header>
+  <main class="main container"><h1>Commander</h1>
+<form id="order-form">
+  <section class="section">
+    <h2>1) Vos informations</h2>
+    <div class="grid2">
+      <label>Nom complet <input name="name" required></label>
+      <label>Téléphone <input name="phone" required></label>
+      <label>Ville <input name="city" required></label>
+      <label>Adresse précise <input name="address" required></label>
+      <label>Email (optionnel) <input name="email" type="email"></label>
+    </div>
+  </section>
+  <section class="section">
+    <h2>2) Retrait ou Livraison</h2>
+    <div class="radio-group">
+      <label><input type="radio" name="dtype" value="pickup" checked> Retrait sur place</label>
+      <label><input type="radio" name="dtype" value="delivery"> Livraison</label>
+    </div>
+    <div id="delivery-block" style="display:none;margin-top:12px">
+      <label>Ville de livraison
+        <select name="dcity">
+          <option value="N'Djamena">N'Djamena</option>
+          <option value="Moundou">Moundou</option>
+          <option value="Sarh">Sarh</option>
+          <option value="Abeche">Abeche</option>
+          <option value="Bongor">Bongor</option>
+          <option value="Doba">Doba</option>
+          <option value="Kelo">Kelo</option>
+          <option value="Am Timan">Am Timan</option>
+          <option value="Faya">Faya</option>
+          <option value="Autres">Autres</option>
+        </select>
+      </label>
+    </div>
+  </section>
+  <section class="section">
+    <h2>3) Composants sélectionnés</h2>
+    <div id="cart-list"></div>
+    <div class="totals">
+      <div>Sous-total : <span id="st">0</span> FCFA</div>
+      <div>Livraison : <span id="df">0</span> FCFA</div>
+      <div class="total">TOTAL : <span id="tt">0</span> FCFA</div>
+    </div>
+  </section>
+  <button class="btn primary" type="submit">Valider la commande</button>
+  <p id="order-msg"></p>
+</form>
+
+<form name="commande" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="bot-field">
+  <input type="text" name="nom">
+  <input type="text" name="telephone">
+  <input type="text" name="ville">
+  <input type="text" name="adresse">
+  <input type="text" name="email">
+  <input type="text" name="mode">
+  <input type="text" name="ville_livraison">
+  <input type="text" name="composants">
+  <input type="text" name="sous_total">
+  <input type="text" name="frais_livraison">
+  <input type="text" name="total">
+</form></main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 CNFFD 2026. Tous droits réservés.</p>
+      <p>Contact Tchad : +235 62 72 93 93 | <a href="https://www.facebook.com/share/1E682wpX91/" target="_blank" rel="noopener">Facebook</a></p>
+    </div>
+  </footer>
+  <script src="/js/store.js"></script>
+  <script src="/js/pwa.js"></script>
+  
+</body>
+</html>
