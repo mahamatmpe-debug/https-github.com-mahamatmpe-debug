@@ -1,0 +1,15 @@
+{
+  "_comment": "Modifie uniquement les nombres en FCFA. Exemple: \"pub1.jpeg\": 2500. _default = prix si non liste.",
+  "_default": 5000,
+
+  "pub1.jpeg": 2500,
+  "pub2.jpeg": 2500,
+  "pub3.jpeg": 2500,
+  "pub4.jpeg": 2500,
+  "pub5.jpeg": 2500,
+  "pub6.jpeg": 2500,
+  "pub7.jpeg": 2500,
+  "pub8.jpeg": 2500,
+  "video5.mp4": 5000,
+  "video6.mp4": 5000
+}

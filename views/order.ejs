@@ -1,0 +1,44 @@
+﻿<h1>Commander</h1>
+<form id='order-form'>
+  <section class='section'>
+    <h2>1) Vos informations</h2>
+    <div class='grid2'>
+      <label>Nom complet <input name='name' required></label>
+      <label>Téléphone <input name='phone' required placeholder='<%= phoneChad %> ou autre'></label>
+      <label>Ville <input name='city' required></label>
+      <label>Adresse précise <input name='address' required></label>
+      <label>Email (optionnel) <input name='email' type='email'></label>
+    </div>
+  </section>
+
+  <section class='section'>
+    <h2>2) Retrait ou Livraison</h2>
+    <div class='radio-group'>
+      <label><input type='radio' name='dtype' value='pickup' checked> Retrait sur place</label>
+      <label><input type='radio' name='dtype' value='delivery'> Livraison</label>
+    </div>
+    <div id='delivery-block' style='display:none;margin-top:12px'>
+      <label>Ville de livraison
+        <select name='dcity'>
+          <% Object.keys(deliveryFeesByCity).forEach(function(city){ %>
+            <option value="<%= city %>"><%= city %></option>
+          <% }) %>
+        </select>
+      </label>
+      <p>Frais selon ville: se calcule automatiquement</p>
+    </div>
+  </section>
+
+  <section class='section'>
+    <h2>3) Composants sélectionnés</h2>
+    <div id='cart-list'></div>
+    <div class='totals'>
+      <div>Sous-total: <span id='st'>0</span> <%= currency %></div>
+      <div>Livraison: <span id='df'>0</span> <%= currency %></div>
+      <div class='total'>TOTAL: <span id='tt'>0</span> <%= currency %></div>
+    </div>
+  </section>
+
+  <button class='btn primary' type='submit'>Envoyer la commande</button>
+  <p id='order-msg'></p>
+</form>

@@ -1,0 +1,23 @@
+{
+  "page": {
+    "facebook": "https://www.facebook.com/CNFFD2026",
+    "whatsapp": "",
+    "youtube": ""
+  },
+  "publications": [
+    {
+      "date": "2026-10-18",
+      "title": "Bienvenue sur CNFFD 2026",
+      "text": "Notre site est en ligne ! Consultez nos composants et commandez directement. Livraison disponible dans tout le Tchad ou retrait sur place.",
+      "image": "/img/logo.jpeg",
+      "link": "/"
+    },
+    {
+      "date": "2026-10-17",
+      "title": "Promo de la semaine",
+      "text": "Decouvrez nos nouveautes. Ajoutez au panier et recevez votre bon de commande en PDF.",
+      "image": "/components/pub1.jpeg",
+      "link": "/orders"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - name: Syntax check
+        run: |
+          node -c server.js
+          node -c routes/orders.js
+          node -c routes/inquiries.js
+          node -c routes/social.js
+          node -c data/components.js
+          node -c utils/mailer.js

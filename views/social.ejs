@@ -1,0 +1,48 @@
+<div class="hero">
+  <h1>Réseaux sociaux</h1>
+  <p>Suivez nos publications quotidiennes et partagez nos composants sur Facebook.</p>
+  <div class="hero-actions">
+    <a class="btn primary" href="<%= facebookPageUrl %>" target="_blank" rel="noopener">Notre page Facebook</a>
+    <a class="btn" target="_blank" rel="noopener"
+       href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURIComponent(baseUrl) %>">Partager le site</a>
+  </div>
+</div>
+
+<section class="section">
+  <h2>Fil Facebook</h2>
+  <div class="fb-embed">
+    <iframe
+      title="Facebook"
+      src="https://www.facebook.com/plugins/page.php?href=<%= encodeURIComponent(facebookPageUrl) %>&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true"
+      width="500" height="600" style="border:none;overflow:hidden;max-width:100%"
+      scrolling="no" frameborder="0" allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  </div>
+  <p class="muted">Si le fil ne s'affiche pas, <a href="<%= facebookPageUrl %>" target="_blank" rel="noopener">ouvrez notre page Facebook</a>.</p>
+</section>
+
+<section class="section">
+  <h2>Publications quotidiennes</h2>
+  <% if (publications.length === 0) { %>
+    <p>Aucune publication pour le moment.</p>
+  <% } %>
+  <div class="grid">
+    <% publications.forEach(function(p){ %>
+      <article class="card">
+        <% if (p.image) { %>
+          <div class="card-media"><img src="<%= p.image %>" alt="<%= p.title %>" loading="lazy"></div>
+        <% } %>
+        <div class="card-body">
+          <div class="pub-date"><%= p.date %></div>
+          <h3 class="card-title"><%= p.title %></h3>
+          <p><%= p.text %></p>
+          <div class="card-actions">
+            <% if (p.link) { %><a class="btn small" href="<%= p.link %>">Voir</a><% } %>
+            <a class="btn small primary" target="_blank" rel="noopener"
+               href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURIComponent(baseUrl + (p.link || '/')) %>">Partager</a>
+          </div>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>
