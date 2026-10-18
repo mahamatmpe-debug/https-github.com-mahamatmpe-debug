@@ -4,7 +4,7 @@
 }
 
 module.exports = {
-  siteName: env('SITE_NAME', 'CNFFD 2026'),
+  siteName: env('SITE_NAME', 'CNFFD Academy Drone Tchad'),
   logo: '/img/logo.jpeg',
   facebookUrl: env('FACEBOOK_URL', 'https://www.facebook.com/share/1E682wpX91/'),
   facebookPage: env('FACEBOOK_PAGE', 'CNFFD2026'),

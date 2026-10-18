@@ -76,13 +76,14 @@ function layout(title, body, opts) {
 function productCards(components) {
   if (!components.length) return '<p>Aucun composant pour le moment.</p>';
   return components.map((c) => {
+    const pretty = c.name.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
     const media = c.type === 'image'
-      ? `<img src="${esc(c.file)}" alt="${esc(c.name)}" loading="lazy">`
+      ? `<img src="${esc(c.file)}" alt="${esc(pretty)}" loading="lazy">`
       : `<video src="${esc(c.file)}" controls preload="metadata"></video>`;
-    return `<article class="card" data-id="${esc(c.id)}" data-name="${esc(c.name)}" data-price="${c.price}" data-file="${esc(c.file)}" data-type="${esc(c.type)}">
+    return `<article class="card" data-id="${esc(c.id)}" data-name="${esc(pretty)}" data-price="${c.price}" data-file="${esc(c.file)}" data-type="${c.type}">
       <div class="card-media">${media}</div>
       <div class="card-body">
-        <h2 class="card-title">${esc(c.name)}</h2>
+        <h2 class="card-title">${esc(pretty)}</h2>
         <div class="card-meta"><span class="price">${c.price} ${CURRENCY}</span></div>
         <div class="card-actions">
           <button type="button" class="btn small js-quickview">Aperçu</button>
@@ -98,8 +99,8 @@ function productCards(components) {
 
 function buildHome(components) {
   const body = `<div class="hero">
-  <h1>Catalogue de composants</h1>
-  <p>Consultez, commandez ou demandez des informations</p>
+  <h1>${esc(config.siteName)}</h1>
+  <p>Catalogue de composants - consultez, commandez ou demandez des informations</p>
   <div class="hero-actions">
     <a class="btn primary" href="/orders">Passer commande</a>
     <a class="btn" href="/inquiries">Poser une question</a>
